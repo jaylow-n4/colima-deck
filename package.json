@@ -4,7 +4,7 @@
   "private": true,
   "description": "colima を GUI から操作するための Electron アプリ",
   "license": "MIT",
-  "author": "Nakagawa",
+  "author": "jaylow-n4",
   "main": "./out/main/index.js",
   "scripts": {
     "predev": "node scripts/patch-dev-electron.cjs",
