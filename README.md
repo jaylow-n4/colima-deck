@@ -113,4 +113,6 @@ env -u ELECTRON_RUN_AS_NODE npm run dist
 
 ## ライセンス
 
-個人利用のため未定。
+[MIT License](LICENSE) © 2026 Nakagawa
+
+ビルドしたアプリには、Electron と Chromium のライセンス文（`LICENSE.electron.txt`、`LICENSES.chromium.html`）が `Colima Deck.app/Contents/Resources/` に同梱されます。このアプリは [colima](https://github.com/abiosoft/colima)（MIT）を外部コマンドとして呼び出すだけで、colima のコードは含みません。
