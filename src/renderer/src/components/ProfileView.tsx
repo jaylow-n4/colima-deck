@@ -80,13 +80,14 @@ export function ProfileView({
     <div className="profile-view">
       <header className="profile-header">
         <div className="profile-title">
+          <h1>Colima Deck</h1>
           <button
             className="profile-switch"
             title="プロファイルを切り替える"
             aria-label={`プロファイル「${profile}」。クリックで切り替え`}
             onClick={onSwitch}
           >
-            <h1>{profile}</h1>
+            <span className="profile-switch-name">{profile}</span>
             <span className="chevron-down" aria-hidden="true">
               ▾
             </span>
