@@ -1,0 +1,28 @@
+appId: dev.colima-deck.app
+productName: Colima Deck
+copyright: Colima Deck
+
+directories:
+  output: dist
+  buildResources: resources
+
+# electron-vite の出力（out/）と、?asset で参照するアイコンだけを含める
+files:
+  - out/**
+  - resources/icon.png
+  - package.json
+
+mac:
+  category: public.app-category.developer-tools
+  icon: resources/icon.icns
+  target:
+    - target: dmg
+    - target: zip
+  # 個人利用のため Apple Developer ID での署名・公証は行わず、ad-hoc 署名（"-"）にする。
+  # 署名が無い・壊れていると、Apple Silicon では起動に失敗することがある。
+  identity: '-'
+  hardenedRuntime: false
+  gatekeeperAssess: false
+
+dmg:
+  title: Colima Deck

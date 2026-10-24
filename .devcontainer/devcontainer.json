@@ -1,0 +1,39 @@
+{
+  "name": "colima-deck",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/docker-outside-of-docker": {}
+  },
+  "mounts": [
+    // macOS 側の node_modules（darwin 用バイナリ）と衝突しないよう、コンテナ専用ボリュームにする
+    "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+  "containerEnv": {
+    // ヘッドレス実行用（xvfb-run で起動する場合に使う）
+    "DISPLAY": ":99"
+  },
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": { "label": "Vite dev server" }
+  },
+  "postCreateCommand": "sudo chown node:node node_modules && if [ -f package.json ]; then npm install; fi",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml",
+        "Anthropic.claude-code"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "js/ts.tsdk.path": "node_modules/typescript/lib"
+      }
+    }
+  },
+  "remoteUser": "node"
+}
